@@ -67,14 +67,18 @@ def get_evaluator(name) -> EvaluatorConfig:
         return EvaluatorConfig(clock_bench_eval=True)
     elif name in ["countbench_qa"]:
         return EvaluatorConfig(count_eval=True)
-    elif name in ["dense_caption_eval", "user_qa", "vqa_v2_test"]:
+    elif name in ["dense_caption_eval", "user_qa", "vqa_v2_test", "custom"]:
         # No metrics, but still save prediction file
+        return EvaluatorConfig()
+    elif name.startswith("str_") or name in ["CUTE80", "IC03_860", "IC03_867", "IC13_1015", "IC13_857",
+                                            "IC15_1811", "IC15_2077", "IIIT5k_3000", "SVT", "SVTP"]:
+        # STR OCR evaluation - no specific metrics, but save predictions for inspection reports
         return EvaluatorConfig()
     else:
         raise NotImplementedError(name)
 
 
-def get_evaluation(name, seq_len, batch_size, max_examples, num_workers=2) -> DatasetEvaluatorConfig:
+def get_evaluation(name, seq_len, batch_size, max_examples, num_workers=0) -> DatasetEvaluatorConfig:
     """Gets the default evaluation config for task (or task:split string) `name`"""
     if ":" in name:
         name, split = name.split(":")
@@ -92,10 +96,17 @@ def get_evaluation(name, seq_len, batch_size, max_examples, num_workers=2) -> Da
     eval_only_tasks = ["mmmu", "mme", "math_vista", "real_world_qa", "seed_bench",
                        "mmbench", "sugar_crepe", "blink"]
     eval_only_tasks += [task_name + "_test" for task_name in eval_only_tasks]
+    
+    # Handle STR datasets
+    str_datasets = ["CUTE80", "IC03_860", "IC03_867", "IC13_1015", "IC13_857", 
+                    "IC15_1811", "IC15_2077", "IIIT5k_3000", "SVT", "SVTP"]
+    
     if name == "tall_qa_count":
         task_name = "tally_qa"
     elif name in eval_only_tasks:
         task_name = name + "_test" if not name.endswith("_test") else name
+    elif name in str_datasets:
+        task_name = name  # Keep original name for STR datasets
     else:
         task_name = name
     evaluator.num_wandb_examples = 32
@@ -124,13 +135,15 @@ def get_evaluation(name, seq_len, batch_size, max_examples, num_workers=2) -> Da
         max_new_tokens = 16
     elif "refc" in name:
         max_new_tokens = 32
+    elif name in str_datasets:
+        max_new_tokens = 50  # STR datasets need more tokens for text recognition
     else:
         max_new_tokens = 12
 
     ds = DataConfig(
         dataset=task_name, sequence_length=seq_len,
         for_inference=True,
-        split=split, shuffle=True, drop_last=True,
+        split=split, shuffle=False, drop_last=True,  # Disable shuffling for evaluation
         num_workers=num_workers, pad="to_max", pin_memory=True
     )
 

@@ -4,23 +4,27 @@ import time
 
 from olmo.data.academic_datasets import ChartQa, ScienceQAImageOnly, TextVqa, OkVqa, DocQa, \
     InfoQa, AOkVqa, Vqa2, PlotQa, FigureQa, DvQa, SceneTextQa, TabWMPDirectAnswer, \
-    AndroidControl, TallyQa, AI2D, CountBenchQa, RealWorldQa, MathVista, MMMU, ClockBench
+    AndroidControl, TallyQa, AI2D, CountBenchQa, RealWorldQa, MathVista, MMMU, ClockBench, Custom
 from olmo.data.pixmo_datasets import (
     PixMoPointsEval, PixMoDocs, PixMoCount, PixMoPoints,
     PixMoCapQa, PixMoCap, PixMoPointExplanations, PixMoAskModelAnything
 )
 from olmo.util import prepare_cli_environment
 
+# ACADEMIC_EVAL = [
+#     ChartQa, TextVqa, DocQa, InfoQa, Vqa2,
+#     AndroidControl, AI2D, CountBenchQa, RealWorldQa, MathVista, MMMU
+# ]
+
 ACADEMIC_EVAL = [
-    ChartQa, TextVqa, DocQa, InfoQa, Vqa2,
-    AndroidControl, AI2D, CountBenchQa, RealWorldQa, MathVista, MMMU
+    ChartQa, DocQa, CountBenchQa, RealWorldQa, MathVista, MMMU
 ]
 
 ACADEMIC_DATASETS = [
     ChartQa, ScienceQAImageOnly, TextVqa, OkVqa, DocQa,
     InfoQa, AOkVqa, PlotQa, FigureQa, DvQa, SceneTextQa, TabWMPDirectAnswer,
     TallyQa, AI2D, CountBenchQa, RealWorldQa, MathVista, MMMU,
-    Vqa2, AndroidControl
+    Vqa2, AndroidControl, Custom
 ]
 
 PIXMO_DATASETS = [

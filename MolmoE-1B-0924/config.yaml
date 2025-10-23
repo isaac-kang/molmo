@@ -1,0 +1,805 @@
+run_name: multitask_train
+seed: 6198
+epoch: null
+dry_run: false
+model:
+  d_model: 2048
+  n_heads: 16
+  n_kv_heads: null
+  qkv_bias: false
+  clip_qkv: null
+  n_layers: 16
+  mlp_ratio: 1
+  mlp_hidden_size: null
+  activation_type: swiglu
+  block_type: moe
+  block_group_size: 1
+  alibi: false
+  alibi_bias_max: 8.0
+  rope: true
+  rope_full_precision: true
+  rope_theta: 10000.0
+  rope_impl: llama
+  vision_backbone:
+    image_model_type: openai
+    image_default_input_size:
+    - 336
+    - 336
+    image_patch_size: 14
+    image_pos_patch_size: 14
+    image_emb_dim: 1024
+    image_num_heads: 16
+    image_num_key_value_heads: 16
+    image_num_layers: 23
+    image_head_dim: 64
+    image_mlp_dim: 4096
+    image_mlp_activations: quick_gelu
+    image_dropout_rate: 0.0
+    image_num_pos: 577
+    image_norm_eps: 1.0e-05
+    attention_dropout: 0.0
+    residual_dropout: 0.0
+    initializer_range: 0.02
+    fsdp_wrap: false
+    resize_mode: default
+  vit_load_path: /weka/oe-training-default/mm-olmo/pretrained_image_encoders/vit-l-14-336.pt
+  llm_load_path: /weka/oe-training-default/mm-olmo/olmoe/model.safetensors
+  low_cpu_fsdp: true
+  attention_type: sdpa
+  float32_attention: true
+  attention_dropout: 0.0
+  response_attention_dropout: 0.0
+  multi_query_attention: null
+  attention_layer_norm: true
+  residual_dropout: 0.1
+  response_residual_dropout: 0.0
+  embedding_dropout: 0.0
+  layer_norm_type: rms
+  layer_norm_with_affine: true
+  layer_norm_eps: 1.0e-05
+  attention_layer_norm_with_affine: true
+  max_sequence_length: 4096
+  max_position_embeddings: 32768
+  include_bias: false
+  bias_for_layer_norm: false
+  scale_logits: false
+  vocab_size: 50280
+  embedding_size: 50304
+  additional_vocab_size: 128
+  new_embedding_init_range: 0.02
+  weight_tying: false
+  pad_token_id: 1
+  init_device: meta
+  init_fn: normal
+  init_std: 0.02
+  init_cutoff_factor: 3.0
+  norm_after: false
+  precision: amp_bf16
+  moe_num_experts: 64
+  moe_top_k: 8
+  moe_mlp_impl: sparse
+  moe_log_expert_assignment: false
+  moe_shared_expert: false
+  moe_lbl_in_fp32: false
+  moe_interleave: false
+  moe_loss_weight: 0.0
+  moe_zloss_weight: 0.0
+  moe_dropless: true
+  moe_capacity_factor: 1.25
+  max_crops: 12
+  crop_mode: overlap-and-resize-c2
+  do_random_scale: false
+  use_col_tokens: true
+  prompt_type: uber_model
+  system_prompt_kind: demo_or_style
+  message_formatting: role
+  always_start_with_space: true
+  prompt_override: null
+  default_inference_len: 65
+  overlap_margins:
+  - 4
+  - 4
+  image_padding_embed: pad_and_partial_pad
+  vit_layers:
+  - -2
+  - -9
+  image_pooling_h: 2
+  image_pooling_w: 2
+  image_pooling_2d: attention_meanq
+  image_projector: mlp
+  image_feature_dropout: 0.0
+  use_cls_feature: false
+  fix_image_input_idx: 2
+  unconditioned: false
+  pad_to: null
+  initializer_range: 0.02
+  pad_tokenizer: false
+  normalize_input_embeds: false
+  use_position_ids: true
+  query_pre_attn_scalar: 224
+  attn_logit_softcapping: null
+  final_logit_softcapping: null
+  head_dim: null
+  tokenizer:
+    identifier: mm:hf-allenai/OLMoE-1B-7B-0924
+    truncate_direction: right
+    tokenizer_adds_space: false
+    tokenizer_dir: /weka/oe-training-default/mm-olmo/tokenizer
+    olmo_bos_token_id: 50279
+    olmo_eos_token_id: 50279
+  loss_token_weighting: root_subsegments
+  gin_bindings: null
+ft_llm: true
+ft_vit: true
+ft_connector: true
+ft_embedding: lm_head
+optimizer:
+  name: adamw
+  learning_rate: 0.0001
+  weight_decay: 0.01
+  betas:
+  - 0.9
+  - 0.95
+  eps: 1.0e-05
+  connector_learning_rate: 5.0e-06
+  vit_learning_rate: 5.0e-06
+  llm_learning_rate: 2.0e-05
+  connector_weight_decay: 0.0
+  vit_weight_decay: 0.0
+  llm_weight_decay: 0.0
+  connector_betas:
+  - 0.9
+  - 0.95
+  vit_betas:
+  - 0.9
+  - 0.95
+  llm_betas:
+  - 0.9
+  - 0.95
+  connector_eps: 1.0e-06
+  vit_eps: 1.0e-06
+  llm_eps: 1.0e-06
+  no_decay_norm_and_bias: null
+  decay_norm_and_bias: false
+  decay_embeddings: false
+  metrics_log_interval: 20
+scheduler:
+  name: multimodal
+  units: steps
+  t_warmup: 100
+  t_max: null
+  alpha_f: 0.1
+  connector_t_warmup: 200
+  vit_t_warmup: 200
+  llm_t_warmup: 200
+  grad_clip_warmup_steps: null
+  grad_clip_warmup_factor: null
+  warmup_min_lr: 0.0
+data:
+  multi_modal: true
+  mixture_or_task_name: null
+  paths: null
+  datasets: null
+  label_mask_paths: null
+  pad_direction: right
+  generate_attention_mask: false
+  num_workers: 0
+  drop_last: true
+  pin_memory: false
+  prefetch_factor: null
+  persistent_workers: false
+  timeout: 0
+  seed: null
+  instance_filter: null
+  mixture:
+    user_qa: 3.772204620047811
+    cockatoo_712k_sept6: 3.161736404536387
+    synthetic_qa_v3_as_user_qa: 5.70612401246295
+    point_qa: 2.359934962952852
+    coco_2014_vqa_multi: 3.067124765028162
+    text_vqa: 1.982948627824974
+    okvqa: 1.011810438733119
+    chart_qa_weighted: 1.793272988041348
+    doc_qa: 2.1176584276768065
+    info_qa: 1.6495950748744952
+    ai2_diagram_v2_mix_transparent: 1.307415575130731
+    a_okvqa_mc: 1.3921930323623322
+    a_okvqa_da: 1.3921930323623322
+    android_control: 2.91381420538637
+    science_qa_img: 0.8405938747465043
+    tabwmp_da: 1.618754903035765
+    st_qa: 1.6871928539865735
+    tally_qa: 3.8873680368227395
+    clocks: 5.330044888030191
+    scifi_charts_qa: 5.152496802868815
+    scifi_table_qa: 3.251519607143135
+    scifi_document_qa: 4.024928615904329
+    scifi_diagram_qa: 1.9394919410872649
+    dv_qa: 1.0660089776060382
+    figure_qa: 1.0660089776060382
+    plot_qa: 1.507564353741936
+    pointing: 8.963869696866821
+    pointing_high_freq: 5.438911590336815
+    fast_flickr_count_qa_pointing: 3.0972187127963617
+    point_count: 8.963869696866821
+    point_count_high_freq: 5.438911590336815
+    fast_flickr_count_qa_point_count: 3.0972187127963617
+  sequence_length: 2304
+  shuffle: true
+  for_inference: false
+  split: train
+  use_memory_cache: false
+  num_epochs: null
+  shuffle_buffer_size: 200
+  per_node_data_loader: null
+restore_dataloader: true
+fast_forward_batches: null
+evaluators: []
+eval_interval: 2000
+inf_eval_interval: 2000
+inf_evaluators:
+- label: chart_qa
+  type: multi_modal
+  data:
+    multi_modal: true
+    mixture_or_task_name: chart_qa
+    paths: null
+    datasets: null
+    label_mask_paths: null
+    pad_direction: right
+    generate_attention_mask: false
+    num_workers: 0
+    drop_last: false
+    pin_memory: false
+    prefetch_factor: null
+    persistent_workers: false
+    timeout: 0
+    seed: null
+    instance_filter: null
+    mixture: null
+    sequence_length: 1792
+    shuffle: false
+    for_inference: true
+    split: validation
+    use_memory_cache: false
+    num_epochs: 1
+    shuffle_buffer_size: 1000
+    per_node_data_loader: null
+  device_eval_batch_size: null
+  subset_num_batches: -1
+  max_new_tokens: 12
+  mm_evaluator:
+    cider: ''
+    num_wandb_examples: 32
+    ptb_tokenizer: false
+    save_html: 0
+    save_predictions: null
+    named_entity_eval: false
+    save_tokens: false
+    vqa_eval: scifi_relaxed_correctness,relaxed_correctness,em
+    n_to_log: 0
+    mme_eval: false
+    mmbench_eval: false
+    sugar_crepe_eval: false
+    pointing_eval: false
+    count_eval: false
+    point_count_eval: false
+    refexp_eval: false
+    pointing: false
+    android_eval: false
+    clock_eval: false
+    gpt_eval: null
+  save_dir: null
+  save_to_checkpoint_dir: false
+  eval_name: null
+  skip_if_metrics_cached: true
+- label: info_qa
+  type: multi_modal
+  data:
+    multi_modal: true
+    mixture_or_task_name: info_qa
+    paths: null
+    datasets: null
+    label_mask_paths: null
+    pad_direction: right
+    generate_attention_mask: false
+    num_workers: 0
+    drop_last: true
+    pin_memory: false
+    prefetch_factor: null
+    persistent_workers: false
+    timeout: 0
+    seed: null
+    instance_filter: null
+    mixture: null
+    sequence_length: 1792
+    shuffle: false
+    for_inference: true
+    split: validation
+    use_memory_cache: false
+    num_epochs: null
+    shuffle_buffer_size: 200
+    per_node_data_loader: null
+  device_eval_batch_size: null
+  subset_num_batches: 8
+  max_new_tokens: 12
+  mm_evaluator:
+    cider: ''
+    num_wandb_examples: 32
+    ptb_tokenizer: false
+    save_html: 0
+    save_predictions: null
+    named_entity_eval: false
+    save_tokens: false
+    vqa_eval: ansl,em
+    n_to_log: 0
+    mme_eval: false
+    mmbench_eval: false
+    sugar_crepe_eval: false
+    pointing_eval: false
+    count_eval: false
+    point_count_eval: false
+    refexp_eval: false
+    pointing: false
+    android_eval: false
+    clock_eval: false
+    gpt_eval: null
+  save_dir: null
+  save_to_checkpoint_dir: false
+  eval_name: null
+  skip_if_metrics_cached: true
+- label: doc_qa
+  type: multi_modal
+  data:
+    multi_modal: true
+    mixture_or_task_name: doc_qa
+    paths: null
+    datasets: null
+    label_mask_paths: null
+    pad_direction: right
+    generate_attention_mask: false
+    num_workers: 0
+    drop_last: true
+    pin_memory: false
+    prefetch_factor: null
+    persistent_workers: false
+    timeout: 0
+    seed: null
+    instance_filter: null
+    mixture: null
+    sequence_length: 1792
+    shuffle: false
+    for_inference: true
+    split: validation
+    use_memory_cache: false
+    num_epochs: null
+    shuffle_buffer_size: 200
+    per_node_data_loader: null
+  device_eval_batch_size: null
+  subset_num_batches: 8
+  max_new_tokens: 12
+  mm_evaluator:
+    cider: ''
+    num_wandb_examples: 32
+    ptb_tokenizer: false
+    save_html: 0
+    save_predictions: null
+    named_entity_eval: false
+    save_tokens: false
+    vqa_eval: ansl,em
+    n_to_log: 0
+    mme_eval: false
+    mmbench_eval: false
+    sugar_crepe_eval: false
+    pointing_eval: false
+    count_eval: false
+    point_count_eval: false
+    refexp_eval: false
+    pointing: false
+    android_eval: false
+    clock_eval: false
+    gpt_eval: null
+  save_dir: null
+  save_to_checkpoint_dir: false
+  eval_name: null
+  skip_if_metrics_cached: true
+- label: a_okvqa_da
+  type: multi_modal
+  data:
+    multi_modal: true
+    mixture_or_task_name: a_okvqa_da
+    paths: null
+    datasets: null
+    label_mask_paths: null
+    pad_direction: right
+    generate_attention_mask: false
+    num_workers: 0
+    drop_last: false
+    pin_memory: false
+    prefetch_factor: null
+    persistent_workers: false
+    timeout: 0
+    seed: null
+    instance_filter: null
+    mixture: null
+    sequence_length: 1792
+    shuffle: false
+    for_inference: true
+    split: validation
+    use_memory_cache: false
+    num_epochs: 1
+    shuffle_buffer_size: 1000
+    per_node_data_loader: null
+  device_eval_batch_size: null
+  subset_num_batches: -1
+  max_new_tokens: 12
+  mm_evaluator:
+    cider: ''
+    num_wandb_examples: 32
+    ptb_tokenizer: false
+    save_html: 0
+    save_predictions: null
+    named_entity_eval: false
+    save_tokens: false
+    vqa_eval: a_okvqa_score
+    n_to_log: 0
+    mme_eval: false
+    mmbench_eval: false
+    sugar_crepe_eval: false
+    pointing_eval: false
+    count_eval: false
+    point_count_eval: false
+    refexp_eval: false
+    pointing: false
+    android_eval: false
+    clock_eval: false
+    gpt_eval: null
+  save_dir: null
+  save_to_checkpoint_dir: false
+  eval_name: null
+  skip_if_metrics_cached: true
+- label: ai2_diagram
+  type: multi_modal
+  data:
+    multi_modal: true
+    mixture_or_task_name: ai2_diagram_v2_mix_transparent
+    paths: null
+    datasets: null
+    label_mask_paths: null
+    pad_direction: right
+    generate_attention_mask: false
+    num_workers: 0
+    drop_last: false
+    pin_memory: false
+    prefetch_factor: null
+    persistent_workers: false
+    timeout: 0
+    seed: null
+    instance_filter: null
+    mixture: null
+    sequence_length: 1792
+    shuffle: false
+    for_inference: true
+    split: validation
+    use_memory_cache: false
+    num_epochs: 1
+    shuffle_buffer_size: 1000
+    per_node_data_loader: null
+  device_eval_batch_size: null
+  subset_num_batches: -1
+  max_new_tokens: 12
+  mm_evaluator:
+    cider: ''
+    num_wandb_examples: 32
+    ptb_tokenizer: false
+    save_html: 0
+    save_predictions: null
+    named_entity_eval: false
+    save_tokens: false
+    vqa_eval: mc_ai2d_opaque,mc_ai2d_transparent
+    n_to_log: 0
+    mme_eval: false
+    mmbench_eval: false
+    sugar_crepe_eval: false
+    pointing_eval: false
+    count_eval: false
+    point_count_eval: false
+    refexp_eval: false
+    pointing: false
+    android_eval: false
+    clock_eval: false
+    gpt_eval: null
+  save_dir: null
+  save_to_checkpoint_dir: false
+  eval_name: null
+  skip_if_metrics_cached: true
+- label: clocks
+  type: multi_modal
+  data:
+    multi_modal: true
+    mixture_or_task_name: clocks
+    paths: null
+    datasets: null
+    label_mask_paths: null
+    pad_direction: right
+    generate_attention_mask: false
+    num_workers: 0
+    drop_last: true
+    pin_memory: false
+    prefetch_factor: null
+    persistent_workers: false
+    timeout: 0
+    seed: null
+    instance_filter: null
+    mixture: null
+    sequence_length: 1792
+    shuffle: false
+    for_inference: true
+    split: validation
+    use_memory_cache: false
+    num_epochs: null
+    shuffle_buffer_size: 200
+    per_node_data_loader: null
+  device_eval_batch_size: null
+  subset_num_batches: 8
+  max_new_tokens: 12
+  mm_evaluator:
+    cider: ''
+    num_wandb_examples: 32
+    ptb_tokenizer: false
+    save_html: 0
+    save_predictions: null
+    named_entity_eval: false
+    save_tokens: false
+    vqa_eval: ''
+    n_to_log: 0
+    mme_eval: false
+    mmbench_eval: false
+    sugar_crepe_eval: false
+    pointing_eval: false
+    count_eval: false
+    point_count_eval: false
+    refexp_eval: false
+    pointing: false
+    android_eval: false
+    clock_eval: true
+    gpt_eval: null
+  save_dir: null
+  save_to_checkpoint_dir: false
+  eval_name: null
+  skip_if_metrics_cached: true
+- label: android_control_ll
+  type: multi_modal
+  data:
+    multi_modal: true
+    mixture_or_task_name: android_control_ll
+    paths: null
+    datasets: null
+    label_mask_paths: null
+    pad_direction: right
+    generate_attention_mask: false
+    num_workers: 0
+    drop_last: false
+    pin_memory: false
+    prefetch_factor: null
+    persistent_workers: false
+    timeout: 0
+    seed: null
+    instance_filter: null
+    mixture: null
+    sequence_length: 1792
+    shuffle: false
+    for_inference: true
+    split: validation
+    use_memory_cache: false
+    num_epochs: 1
+    shuffle_buffer_size: 1000
+    per_node_data_loader: null
+  device_eval_batch_size: null
+  subset_num_batches: -1
+  max_new_tokens: 12
+  mm_evaluator:
+    cider: ''
+    num_wandb_examples: 32
+    ptb_tokenizer: false
+    save_html: 0
+    save_predictions: null
+    named_entity_eval: false
+    save_tokens: false
+    vqa_eval: ''
+    n_to_log: 0
+    mme_eval: false
+    mmbench_eval: false
+    sugar_crepe_eval: false
+    pointing_eval: false
+    count_eval: false
+    point_count_eval: false
+    refexp_eval: false
+    pointing: false
+    android_eval: true
+    clock_eval: false
+    gpt_eval: null
+  save_dir: null
+  save_to_checkpoint_dir: false
+  eval_name: null
+  skip_if_metrics_cached: true
+- label: pointing_test
+  type: multi_modal
+  data:
+    multi_modal: true
+    mixture_or_task_name: pointing_test
+    paths: null
+    datasets: null
+    label_mask_paths: null
+    pad_direction: right
+    generate_attention_mask: false
+    num_workers: 0
+    drop_last: false
+    pin_memory: false
+    prefetch_factor: null
+    persistent_workers: false
+    timeout: 0
+    seed: null
+    instance_filter: null
+    mixture: null
+    sequence_length: 1792
+    shuffle: false
+    for_inference: true
+    split: test
+    use_memory_cache: false
+    num_epochs: 1
+    shuffle_buffer_size: 1000
+    per_node_data_loader: null
+  device_eval_batch_size: null
+  subset_num_batches: -1
+  max_new_tokens: 384
+  mm_evaluator:
+    cider: ''
+    num_wandb_examples: 32
+    ptb_tokenizer: false
+    save_html: 0
+    save_predictions: null
+    named_entity_eval: false
+    save_tokens: false
+    vqa_eval: ''
+    n_to_log: 0
+    mme_eval: false
+    mmbench_eval: false
+    sugar_crepe_eval: false
+    pointing_eval: false
+    count_eval: false
+    point_count_eval: false
+    refexp_eval: false
+    pointing: true
+    android_eval: false
+    clock_eval: false
+    gpt_eval: null
+  save_dir: null
+  save_to_checkpoint_dir: false
+  eval_name: null
+  skip_if_metrics_cached: true
+- label: countbench_qa
+  type: multi_modal
+  data:
+    multi_modal: true
+    mixture_or_task_name: countbench_qa
+    paths: null
+    datasets: null
+    label_mask_paths: null
+    pad_direction: right
+    generate_attention_mask: false
+    num_workers: 0
+    drop_last: false
+    pin_memory: false
+    prefetch_factor: null
+    persistent_workers: false
+    timeout: 0
+    seed: null
+    instance_filter: null
+    mixture: null
+    sequence_length: 1792
+    shuffle: false
+    for_inference: true
+    split: huggingface
+    use_memory_cache: false
+    num_epochs: 1
+    shuffle_buffer_size: 1000
+    per_node_data_loader: null
+  device_eval_batch_size: null
+  subset_num_batches: -1
+  max_new_tokens: 384
+  mm_evaluator:
+    cider: ''
+    num_wandb_examples: 32
+    ptb_tokenizer: false
+    save_html: 0
+    save_predictions: null
+    named_entity_eval: false
+    save_tokens: false
+    vqa_eval: ''
+    n_to_log: 0
+    mme_eval: false
+    mmbench_eval: false
+    sugar_crepe_eval: false
+    pointing_eval: false
+    count_eval: false
+    point_count_eval: true
+    refexp_eval: false
+    pointing: false
+    android_eval: false
+    clock_eval: false
+    gpt_eval: null
+  save_dir: null
+  save_to_checkpoint_dir: false
+  eval_name: null
+  skip_if_metrics_cached: true
+save_folder: /weka/oe-training-default/chrisc/cockatoo/models/uber-model-v11/olmoe-5520-3.2-synthetic
+remote_save_folder: null
+canceled_check_interval: 50
+save_interval: 4000
+save_interval_unsharded: 30000
+save_interval_ephemeral: null
+save_num_checkpoints_to_keep: 1
+save_num_unsharded_checkpoints_to_keep: -1
+save_overwrite: true
+force_save_unsharded: false
+no_pre_train_checkpoint: true
+initial_model_checkpoint: /weka/oe-training-default/mm-olmoe/runs/mm-olmoe-22k-8gpus/step22300-unsharded
+load_model_config: null
+load_path: null
+load_path_sharded_checkpointer: null
+reset_optimizer_state: false
+reset_trainer_state: false
+save_dataloader_state: false
+reset_dataloader_state: false
+sharded_checkpointer: torch_legacy
+new_style_checkpoints: null
+max_duration: 30000
+global_train_batch_size: 256
+device_train_batch_size: 4
+device_train_microbatch_size: 2
+device_eval_batch_size: 4
+eval_subset_num_batches: 8
+eval_on_load: false
+device_inf_eval_batch_size: 4
+inf_eval_subset_num_batches: -1
+device_train_grad_accum: 2
+max_grad_norm: 1.0
+batch_divisor: global_batch
+max_grad_norm_ratio: null
+precision: amp_bf16
+wandb:
+  project: cockatoo
+  entity: prior-ai2
+  group: uber-model-v11
+  name: olmoe-5520-3.2-synthetic
+  tags:
+  - watching
+  log_artifacts: false
+  rank_zero_only: true
+  log_interval: 20
+speed_monitor:
+  window_size: 20
+  gpu_flops_available: null
+console_log_interval: 20
+gen1_gc_interval: 1
+compile: null
+fsdp:
+  use_orig_params: true
+  sharding_strategy: FULL_SHARD
+  wrapping_strategy: by_block_and_size
+  precision: float
+  hybrid_sharding_num_model_replicas: null
+softmax_auxiliary_loss: true
+softmax_auxiliary_loss_scale: 0.0001
+time_limit: null
+extra_steps_after_cancel: 10
+early_stopping_factor: null
+save_data_indices: true
+python_profiling: false
+torch_profiling: false
+stop_at: 30000
+stop_after: null
+activation_checkpointing: one_in_two
+fused_loss: null
+tfds_dir: /weka/oe-training-default/mm-olmo/tensorflow_datasets

@@ -1,4 +1,5 @@
 import logging
+import os
 
 import numpy as np
 from torch.utils.data import DataLoader, DistributedSampler
@@ -6,7 +7,7 @@ from torch.utils.data import DataLoader, DistributedSampler
 from olmo.config import DataConfig, TrainConfig, ModelConfig
 from olmo.data.academic_datasets import ChartQa, ScienceQAImageOnly, TextVqa, OkVqa, DocQa, \
     InfoQa, AOkVqa, Vqa2, PlotQa, FigureQa, DvQa, SceneTextQa, TabWMPDirectAnswer, \
-    AndroidControl, TallyQa, AI2D, CountBenchQa, RealWorldQa, MathVista, MMMU, ClockBench
+    AndroidControl, TallyQa, AI2D, CountBenchQa, RealWorldQa, MathVista, MMMU, ClockBench, Custom, STRDataset
 from olmo.data.collator import MMCollator
 from olmo.data.data_formatter import DataFormatter
 from olmo.data.dataset import DeterministicDataset
@@ -90,6 +91,9 @@ def build_torch_mm_eval_dataloader(
             # We need this if evaluating FSDP models since they will need all devices to get
             # exactly the same number of batches
             n_pad = (n_steps*global_batch_size) - len(dataset)
+            
+    for i in range(10):
+        dataset[i]['image'].save(f'./results/{data_config.dataset}_{data_config.split}_{i:02}.png')
 
     dataset = DeterministicDataset(
         dataset=dataset,
@@ -316,4 +320,15 @@ def get_dataset_by_name(dataset_name, split):
         if split == "validation":
             split = "testmini"
         return MathVista(split)
+    if dataset_name == "custom":
+        return Custom(split)
+    
+    # Handle STR datasets
+    str_datasets = ["CUTE80", "IC03_860", "IC03_867", "IC13_1015", "IC13_857", 
+                    "IC15_1811", "IC15_2077", "IIIT5k_3000", "SVT", "SVTP"]
+    if dataset_name in str_datasets:
+        # Get custom prompt from environment if set
+        custom_prompt = os.environ.get('STR_CUSTOM_PROMPT')
+        return STRDataset(dataset_name=dataset_name, split=split, case_sensitive=True, custom_prompt=custom_prompt)
+    
     raise NotImplementedError(dataset_name, split)

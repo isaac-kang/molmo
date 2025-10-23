@@ -1,0 +1,10 @@
+000 IMAGE[144] User: custom_ocr: Read the text in the image. Assistant: RONALDO
+001 IMAGE[144] User: custom_ocr: Read the text in the image. Assistant: 7
+002 IMAGE[144] User: custom_ocr: Read the text in the image. Assistant: SEACREST
+003 IMAGE[144] User: custom_ocr: Read the text in the image. Assistant: BEACH
+004 IMAGE[144] User: custom_ocr: Read the text in the image. Assistant: BALLYS
+005 IMAGE[144] User: custom_ocr: Read the text in the image. Assistant: STATION
+006 IMAGE[144] User: custom_ocr: Read the text in the image. Assistant: ENTRANCE
+007 IMAGE[144] User: custom_ocr: Read the text in the image. Assistant: Carp
+008 IMAGE[144] User: custom_ocr: Read the text in the image. Assistant: Team
+009 IMAGE[144] User: custom_ocr: Read the text in the image. Assistant: eBizu

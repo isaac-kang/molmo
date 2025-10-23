@@ -7,6 +7,7 @@ from os.path import join
 
 import datasets
 import numpy as np
+from PIL import Image
 
 from olmo.data.dataset import DATA_HOME, DatasetBase, Dataset, HfDataset
 from olmo.hf_datasets.a_okvqa import AOkVqaBuilder
@@ -25,10 +26,12 @@ if DATA_HOME is not None:
     DOWNLOADS = join(DATA_HOME, "downloads")
     INFOQA_SOURCE = join(DATA_HOME, "info_qa")
     ST_QA_SRC = join(DATA_HOME, "scene-text")
+    CUSTOM_DATASET_SOURCE = join(DATA_HOME, "example_custom_dataset")
 else:
     DOWNLOADS = None
     INFOQA_SOURCE = None
     ST_QA_SRC = None
+    CUSTOM_DATASET_SOURCE = None
 
 
 class ChartQa(HfDataset):
@@ -845,3 +848,231 @@ class ClockBench(Dataset):
             ),
             style="clocks",
         )
+
+
+class STRDataset(DatasetBase):
+    """
+    STR (Scene Text Recognition) dataset for LMDB format.
+    Reads images from LMDB and ground truth from text files.
+    
+    SPLITS = ["evaluation"]
+    """
+    SPLITS = ["evaluation"]
+    
+    def __init__(self, dataset_name, split="evaluation", case_sensitive=True, custom_prompt=None):
+        self.dataset_name = dataset_name
+        self.case_sensitive = case_sensitive
+        self.custom_prompt = custom_prompt
+        # Force split to be "evaluation" for STR datasets
+        super().__init__("evaluation")
+    
+    def load(self):
+        """Load STR dataset from LMDB and ground truth files"""
+        import lmdb
+        from pathlib import Path
+        import os
+        
+        # Use STR_DATA_DIR environment variable if set, otherwise default to case-sensitive
+        str_data_dir = os.environ.get('STR_DATA_DIR', '~/data/STR/english_case-sensitive')
+        str_data_dir = Path(str_data_dir).expanduser()
+        
+        # Set up paths using the unified STR data directory
+        lmdb_path = str_data_dir / f"lmdb/{self.split}/{self.dataset_name}"
+        
+        # Use custom prompt if provided, otherwise use default
+        ocr_prompt = self.custom_prompt if self.custom_prompt else "What is the main word in the image? Output only the text."
+        
+        out = []
+        # Open LMDB and get all keys
+        env = lmdb.open(str(lmdb_path), readonly=True)
+        with env.begin() as txn:
+            cursor = txn.cursor()
+            count = 0
+            for key, value in cursor:
+                image_id = key.decode()
+                # Only process image entries, skip label entries
+                if not image_id.startswith('image-'):
+                    continue
+                
+                # Load ground truth from LMDB label entry
+                label_key = image_id.replace('image-', 'label-')
+                label_data = txn.get(label_key.encode())
+                text = label_data.decode() if label_data else ''
+                
+                out.append(dict(
+                    image_id=image_id,
+                    image_filename=f"{image_id}.png",
+                    question=ocr_prompt,
+                    answers=[text],
+                    metadata=dict(
+                        image_id=image_id,
+                        image_filename=f"{image_id}.png",
+                    ),
+                ))
+                count += 1
+        env.close()
+        
+        logging.info(f"Loaded STR dataset {self.dataset_name}: {len(out)} examples")
+        return out
+    
+    def get(self, item, rng):
+        """Get an example from the dataset"""
+        ex = self.data[item]
+        
+        # Load image from LMDB
+        import lmdb
+        from pathlib import Path
+        import io
+        import os
+        
+        # Use STR_DATA_DIR environment variable if set, otherwise default to case-sensitive
+        str_data_dir = os.environ.get('STR_DATA_DIR', '~/data/STR/english_case-sensitive')
+        str_data_dir = Path(str_data_dir).expanduser()
+        lmdb_path = str_data_dir / f"lmdb/{self.split}/{self.dataset_name}"
+        
+        # Open LMDB environment
+        env = lmdb.open(str(lmdb_path), readonly=True, lock=False)
+        try:
+            with env.begin() as txn:
+                image_data = txn.get(ex['image_id'].encode())
+                if image_data is None:
+                    raise ValueError(f"Image {ex['image_id']} not found in LMDB")
+                
+                # Debug: Check image data
+                if len(image_data) == 0:
+                    raise ValueError(f"Image {ex['image_id']} has zero length data")
+                
+                # Try to load image with error handling
+                try:
+                    image = Image.open(io.BytesIO(image_data))
+                    image = image.convert('RGB')
+                except Exception as e:
+                    print(f"Error loading image {ex['image_id']}: {e}")
+                    print(f"Image data length: {len(image_data)}")
+                    print(f"First 20 bytes: {image_data[:20]}")
+                    print(f"Last 20 bytes: {image_data[-20:]}")
+                    raise
+        finally:
+            env.close()
+        
+        return dict(
+            image=image,
+            question=ex['question'],
+            answers=ex['answers'],
+            metadata=ex['metadata'],
+            style="ocr_vqa",  # Use ocr_vqa style for STR datasets (more appropriate than ai2_diagram)
+        )
+
+
+class Custom(DatasetBase):
+    """
+    Custom OCR dataset for word-level text recognition.
+    Reads images and labels from ~/data/torch_datasets/example_custom_dataset/
+    
+    Images are preprocessed as follows:
+    - Resized to height 32 pixels (keeping aspect ratio)
+    - Pasted on 336x336 white background at position (14, 14)
+    """
+    SPLITS = ["train", "validation", "test"]
+
+    @classmethod
+    def download(cls, n_procs=1):
+        """No download needed - assumes data is already in place"""
+        if CUSTOM_DATASET_SOURCE is None:
+            raise ValueError(
+                "CUSTOM_DATASET_SOURCE is None. Please set MOLMO_DATA_DIR environment variable."
+            )
+        labels_file = join(CUSTOM_DATASET_SOURCE, "labels.json")
+        images_dir = join(CUSTOM_DATASET_SOURCE, "images")
+        if not exists(labels_file):
+            raise ValueError(
+                f"Custom dataset requires labels.json at {labels_file}"
+            )
+        if not exists(images_dir):
+            raise ValueError(
+                f"Custom dataset requires images directory at {images_dir}"
+            )
+        logging.info(f"Custom dataset found at {CUSTOM_DATASET_SOURCE}")
+
+    def __init__(self, split):
+        if split not in self.SPLITS:
+            # If split is not recognized, default to train
+            logging.warning(f"Split '{split}' not in {self.SPLITS}, defaulting to 'train'")
+            split = "train"
+        super().__init__(split)
+    
+    @staticmethod
+    def preprocess_image(image_path):
+        """
+        Load and return the original image without any preprocessing
+        
+        Args:
+            image_path: Path to the original image
+            
+        Returns:
+            PIL Image (original, unmodified)
+        """
+        # Simply load and return the original image
+        return Image.open(image_path).convert('RGB')
+
+
+    def load(self):
+        """Load the labels.json file and construct dataset"""
+        if CUSTOM_DATASET_SOURCE is None:
+            raise ValueError(
+                "CUSTOM_DATASET_SOURCE is None. Please set MOLMO_DATA_DIR environment variable."
+            )
+        
+        labels_file = join(CUSTOM_DATASET_SOURCE, "labels.json")
+        logging.info(f"Loading custom dataset from {labels_file}")
+        
+        with open(labels_file, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+        
+        out = []
+        images_dir = join(CUSTOM_DATASET_SOURCE, "images")
+        
+        # Use default OCR prompt
+        ocr_prompt = "What is the main word in the image? Output only the text."
+        logging.info(f"Using OCR prompt: '{ocr_prompt}'")
+        
+        for ex in data:
+            image_filename = ex["image_filename"]
+            image_path = join(images_dir, image_filename)
+            
+            # Only include examples where the image file exists
+            if exists(image_path):
+                out.append(dict(
+                    image_path=image_path,  # Store path, preprocess on-the-fly
+                    question=ocr_prompt,  # Use prompt from environment variable
+                    answers=[ex["text"]],  # Single answer in a list
+                    metadata=dict(
+                        image_id=ex["image_id"],
+                        image_filename=image_filename,
+                    ),
+                ))
+            else:
+                logging.debug(f"Image not found: {image_path}, skipping")
+        
+        logging.info(f"Loaded {len(out)} examples from custom dataset")
+        return out
+
+    def get(self, item, rng):
+        """Get an example with original image"""
+        ex = dict(**self.data[item])
+        
+        # Load the original image without preprocessing
+        image_path = ex.pop("image_path")
+        original_image = self.preprocess_image(image_path)
+        
+        # Return PIL Image (not numpy array) for compatibility with evaluation framework
+        ex["image"] = original_image
+        ex["style"] = "ocr_vqa"
+        
+        # Store metadata for saving resized images later
+        ex["metadata"] = ex.get("metadata", {})
+        ex["metadata"]["item_index"] = item
+        ex["metadata"]["image_path"] = image_path
+        
+        return ex
+    

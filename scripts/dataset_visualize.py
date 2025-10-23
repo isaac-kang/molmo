@@ -1,17 +1,84 @@
 import argparse
 from os.path import join
+import os
 
 from tqdm import tqdm
 
 import numpy as np
+import PIL.Image
 
-from olmo.html_utils import example_to_html_dict, build_html_table
+from olmo.html_utils import example_to_html_dict, build_html_table, postprocess_prompt
 from olmo.data import get_dataset_by_name
 from olmo.data.data_formatter import DataFormatter
 from olmo.data.dataset import DeterministicDataset
 from olmo.data.model_preprocessor import Preprocessor
 from olmo.data.model_preprocessor import MultiModalPreprocessor as TorchMultiModalPreprocessor
 from olmo.tokenizer import build_tokenizer
+
+
+def save_images_and_prompts(name, split, n, preprocessor, output_dir, is_training=None, 
+                           for_inference=False, shuffle=True):
+    """Save images as PNG files and prompts in a text file"""
+    if is_training is None:
+        is_training = True if split == "train" else False,
+    seq_len = {
+        "is_training": is_training,
+        "target_tokens": 2048 + 512,
+    }
+    if split != "train":
+        seq_len["seed"] = 42
+
+    dataset = get_dataset_by_name(name, split)
+    data = DeterministicDataset(dataset, preprocessor, 0)
+    if shuffle:
+        ix = list(range(len(data)))
+        np.random.shuffle(ix)
+    else:
+        ix = range(n)
+    it = (data[i] for i in ix[:n])
+    voc = preprocessor.tokenizer
+
+    # Create output directory if it doesn't exist
+    os.makedirs(output_dir, exist_ok=True)
+    
+    # Open text file for writing prompts
+    prompts_file = join(output_dir, f"{name}_prompts.txt")
+    
+    n_images = []
+    n_tokens = []
+    
+    with open(prompts_file, "w", encoding="utf-8") as f:
+        for idx, ex in enumerate(tqdm(it, total=n)):
+            # Get the prompt text
+            text = voc.decode(ex["target_tokens"][ex["target_tokens"] != voc.pad_id])
+            text = postprocess_prompt(text)
+            
+            # Save the prompt to text file
+            f.write(f"{idx:03d} {text}\n")
+            
+            # Save the image if it exists
+            if "metadata" in ex and "image" in ex["metadata"]:
+                image = ex["metadata"]["image"]
+                if isinstance(image, bytes):
+                    # Handle bytes data
+                    import io
+                    image = PIL.Image.open(io.BytesIO(image))
+                elif isinstance(image, np.ndarray):
+                    # Convert numpy array to PIL Image
+                    image = PIL.Image.fromarray(image.astype(np.uint8))
+                
+                # Save as PNG with zero-padded numbering
+                image_filename = f"{name}_{idx:03d}.png"
+                image_path = join(output_dir, image_filename)
+                image.save(image_path)
+            
+            n_tokens.append((ex["target_tokens"] != -1).sum())
+            n_images.append(ex["images"].shape[0])
+    
+    print(f"Saved {n} images to {output_dir}")
+    print(f"Saved prompts to {prompts_file}")
+    print("Mean num tokens: " + str(np.mean(n_tokens)))
+    print("Mean num crops: " + str(np.mean(n_images)))
 
 
 def build_qualitative_table(name, split, n, preprocessor, is_training=None, for_inference=False, shuffle=True,
@@ -83,6 +150,8 @@ def main():
                         help="Tokenizer to use")
     parser.add_argument("--max_crops", type=int, default=4,
                         help="Max crops to select")
+    parser.add_argument("--save_separate", action="store_true",
+                        help="Save images as separate PNG files and prompts in text file instead of HTML")
     args = parser.parse_args()
 
     name = args.task
@@ -106,13 +175,24 @@ def main():
         include_image=True  # include the image in the metadata so we can visualize it
     )
 
-    html = build_qualitative_table(
-        args.task, args.split, args.num_examples, pre, is_training=not args.eval,
-        for_inference=args.inference, show_patches=args.show_patches,
-        show_crops=args.show_crops, shuffle=args.shuffle)
-    print(f"Save examples to {output_file}")
-    with open(output_file, "w") as f:
-        f.write(html)
+    if args.save_separate:
+        # Save images and prompts separately
+        save_images_and_prompts(
+            args.task, args.split, args.num_examples, pre, 
+            output_dir=args.output_dir,
+            is_training=not args.eval,
+            for_inference=args.inference, 
+            shuffle=args.shuffle
+        )
+    else:
+        # Original HTML output
+        html = build_qualitative_table(
+            args.task, args.split, args.num_examples, pre, is_training=not args.eval,
+            for_inference=args.inference, show_patches=args.show_patches,
+            show_crops=args.show_crops, shuffle=args.shuffle)
+        print(f"Save examples to {output_file}")
+        with open(output_file, "w") as f:
+            f.write(html)
     print("Done")
 
 

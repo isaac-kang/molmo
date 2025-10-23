@@ -1,0 +1,559 @@
+000 IMAGE[144] User: a_okvqa_mc: Brahma Industries sells vinyl replacement windows to home improvement retailers nationwide. The national sales manager believes that if they invest an additional $25,000 in advertising, they would increase sales volume by 10,000 units. <image 1> What is the total contribution margin?
+A: $759,000
+B: $1,138,500
+C: $714,500
+D: $44,500
+ Assistant: ?
+001 IMAGE[144] User: a_okvqa_mc: Let us compute for the missing amounts under work in process inventory, what is the cost of goods manufactured? <image 1>
+A: $20,506
+B: $21,506
+C: $22,506
+D: $23,506
+ Assistant: ?
+002 IMAGE[144] User: a_okvqa_mc: Tsuji is reviewing the price of a 3-month Japanese yen/U.S. dollar currency futures contract, using the currency and interest rate data shown below. Because the 3-month Japanese interest rate has just increased to .50%, Itsuji recognizes that an arbitrage opportunity exists nd decides to borrow $1 million U.S. dollars to purchase Japanese yen. Calculate the yen arbitrage profit from Itsuji's strategy, using the following data: <image 1> 
+A: ¥118,763.90
+B: ¥121,337.29
+C: ¥129,928.61
+ Assistant: ?
+003 IMAGE[144] User: a_okvqa_mc: <image 1> Ballentine Manufacturing produces and sells lawnmowers through a national dealership network. They purchase raw materials from a variety of suppliers, and all manufacturing and assembly work is performed at their plant outside of Kansas City, Missouri. They recorded these costs for the year ending December 31, 2017. What is the net income?
+A: $300,000
+B: $400,000
+C: $500,000
+D: $600,000
+ Assistant: ?
+004 IMAGE[144] User: a_okvqa_mc: Use the image to analyze the effect of the following on the level of real interest rates:<image 1>
+a. Businesses become more pessimistic about future demand for their products and decide to reduce their capital spending.
+b. Households are induced to save more because of increased uncertainty about their future Social Security benefits. 
+c. The Federal Reserve Board undertakes open-market purchases of U.S. Treasury securities in order to increase the supply of money.
+A: a.increase ;b.decrease ;c.increase
+B: a.increase ;b.decrease ;c.decrease
+C: a.decrease ;b.decrease ;c.decrease
+D: a.decrease ;b.increase ;c.decrease
+ Assistant: ?
+005 IMAGE[144] User: a_okvqa_mc: <image 1> Puzzles, Pranks & Games is a retail business selling children's toys and games as well as a wide selection of jigsaw puzzles and accessories. They purchase their inventory from local and national wholesale suppliers. For the year ending December 31, 2017, they reported these revenues and expenses. What is total revenue?
+A: $415,000
+B: $307,000
+C: $108,000
+D: $98,000
+ Assistant: ?
+006 IMAGE[144] User: a_okvqa_mc: Provide the missing amounts of the accounting equation for each of the following companies. <image 1>
+A: Elias:$320,000;Patel:$51,000
+B: Elias:$219,000;Patel:$62,000
+C: Elias:$172,000;Patel:$58,000
+D: Elias:$163,000;Patel:$58,000
+ Assistant: ?
+007 IMAGE[144] User: a_okvqa_mc: Shonda & Shonda is a company that does land surveys and engineering consulting. They have an opportunity to purchase new computer equipment that will allow them to render their drawings and surveys much more quickly. The new equipment will cost them an additional $1,200 per month, but they will be able to increase their sales by 10% per year. Their current annual cost and break-even figures are as follows: <image 1> What will be the impact on net operating income if Shonda & Shonda purchases the new computer?
+A: decreased by $3,200
+B: increased by $3,200
+C: decreased by $3,500
+D: increased by $3,500
+ Assistant: ?
+008 IMAGE[144] User: a_okvqa_mc: This cost data from Hickory Furniture is for the year 2017. <image 1> Predict the utility costs if 800 tables are produced.
+A: $221
+B: $222
+C: $223
+D: $224
+ Assistant: ?
+009 IMAGE[144] User: a_okvqa_mc: Morris Industries manufactures and sells three products (AA, BB, and CC). The sales price and unit variable cost for the three products are as follows: <image 1> Their sales mix is reflected as a ratio of 5:3:2. Annual fixed costs shared by the three products are $258,000 per year. Calculate the number of units of each product that will need to be sold in order for Morris to break even.
+A: 6,000 units of AA, 3,500 units of BB, and 2,400 units of CC
+B: 7,000 units of AA, 3,500 units of BB, and 2,500 units of CC
+C: 6,000 units of AA, 3,600 units of BB, and 2,400 units of CC
+D: 7,000 units of AA, 3,600 units of BB, and 2,500 units of CC
+ Assistant: ?
+010 IMAGE[144] User: a_okvqa_mc: <image 1> Conner & Scheer, Attorneys at Law, provide a wide range of legal services for their clients. They employ several paralegal and administrative support staff in order to provide high-quality legal services at competitive prices. For the year ending December 31, 2017, the firm reported these income and expenses. What is the total expense?
+A: $789,000
+B: $718,000
+C: $2,250,000
+D: $1,461,000
+ Assistant: ?
+011 IMAGE[144] User: a_okvqa_mc: Wellington, Inc., reports the following contribution margin income statement for the month of May. The company has the opportunity to purchase new machinery that will reduce its variable cost per unit by $10 but will increase fixed costs by 20%. Assume sales level remains unchanged. <image 1> What is the new fixed costs?
+A: $42,000
+B: $86,400
+C: $93,600
+D: $51,600
+ Assistant: ?
+012 IMAGE[144] User: a_okvqa_mc: Turn to Figure 2.8 and look at the listing for General Dynamics. . What was the firm's closing price on the day before the listing? <image 1>
+A: $66.85
+B: $74.20
+C: $67.47
+ Assistant: ?
+013 IMAGE[144] User: a_okvqa_mc: A stock has had the following year-end prices and dividends:<image 1>What are the arithmetic and geometric returns for the stock?
+A: (1):9.54%  (2):8.33%
+B: (1):9.76%  (2):8.33%
+C: (1):9.54%  (2):8.94%
+ Assistant: ?
+014 IMAGE[144] User: a_okvqa_mc: Patrick Wall is considering the purchase of one of the two bonds described in the following table. Wall realizes his decision will depend primarily on effective duration, and he believes that interest rates will decline by 50 basis points at all maturities over the next 6 months. <image 1> Calculate the percentage price change forecasted by effective duration for both the CIC and PTR bonds if interest rates decline by 50 basis points over the next 6 months.
+A: (1)3.655% ; (2)2.695%
+B: (1)3.715% ; (2)2.700%
+C: (1)3.675% ; (2)2.700%
+ Assistant: ?
+015 IMAGE[144] User: a_okvqa_mc: Suppose that the prices of zero-coupon bonds with various maturities are given in the following table. The face value of each bond is $1,000. <image 1> Calculate the forward rate of interest for year 4.
+A: 8.5%
+B: 9.0%
+C: 9.5%
+ Assistant: ?
+016 IMAGE[144] User: a_okvqa_mc: Keleher Industries manufactures pet doors and sells them directly to the consumer via their web site. The marketing manager believes that if the company invests in new software, they will increase their sales by 10%. The new software will increase fixed costs by $400 per month. The previous annual statement is as follows: <image 1> What is the new fixed costs?
+A: $460,350
+B: $392,150
+C: $436,050
+D: $24,300
+ Assistant: ?
+017 IMAGE[144] User: a_okvqa_mc: Match each term with its description. <image 1>
+A: iv; ii; vi; vii; iii; v; i; viii.
+B: vi; ii; iv; vii; iii; v; i; viii.
+C: iv; ii; vi; viii; iii; v; i; vii.
+D: ii; i; vi; vii; iii; v; iv; viii.
+ Assistant: ?
+018 IMAGE[144] User: a_okvqa_mc: Consider the following premerger information about Firm A and Firm B:<image 1> Assume that Firm A acquires Firm B via an exchange of stock at a price of $13 for each share of B's stock. Both A and B have no debt outstanding.What will the price-earnings ratio of the postmerger firm be if the market correctly analyzes the transaction?
+A: 21.44
+B: 20.95
+C: 20.32
+ Assistant: ?
+019 IMAGE[144] User: a_okvqa_mc: Let us compute for the missing amounts under work in process inventory, what is the manufacturing overhead applied? <image 1>
+A: $18,420
+B: $19,420
+C: $20,420
+D: $21,420
+ Assistant: ?
+020 IMAGE[144] User: a_okvqa_mc: Assuming the following account balance changes for the period, what is the missing value? <image 1>
+A: $705,750
+B: $713,315
+C: $746,130
+D: $708,530
+ Assistant: ?
+021 IMAGE[144] User: a_okvqa_mc: Given $100,000 to invest, what is the expected risk premium in dollars of investing in equities versus risk-free T-bills on the basis of the following table? <image 1>
+A: $9,000
+B: $11,400
+C: $13,000
+ Assistant: ?
+022 IMAGE[144] User: a_okvqa_mc: <image 1> Ballentine Manufacturing produces and sells lawnmowers through a national dealership network. They purchase raw materials from a variety of suppliers, and all manufacturing and assembly work is performed at their plant outside of Kansas City, Missouri. They recorded these costs for the year ending December 31, 2017. What is total revenue?
+A: $2,600,000
+B: $2,700,000
+C: $2,800,000
+D: $2,900,000
+ Assistant: ?
+023 IMAGE[144] User: a_okvqa_mc: Assume accounts have normal balances, what is the balance of the account? <image 1> Adjustments needed: Accrued interest revenue on investments at period end, $2,200; Insurance still unexpired at end of the period, $12,000.
+A: $210,150
+B: $220,200
+C: $273,365
+D: $200,431
+ Assistant: ?
+024 IMAGE[144] User: a_okvqa_mc: West Island distributes a single product. The company's sales and expenses for the month of June are shown. <image 1> What is the total contribution margin at the break-even point?
+A: $40,000
+B: $41,000
+C: $42,000
+D: $43,000
+ Assistant: ?
+025 IMAGE[144] User: a_okvqa_mc: Here are data on three hedge funds. Each fund charges its investors an incentive fee of 20% of total returns. Suppose initially that a fund of funds (FF) manager buys equal amounts of each of these funds, and also charges its investors a 20% incentive fee. For simplicity, assume also that management fees other than incentive fees are zero for all funds. <image 1> Suppose that instead of buying shares in each of the three hedge funds, a stand-alone (SA) hedge fund purchases the same portfolio as the three underlying funds. The total value and composition of the SA fund is therefore identical to the one that would result from aggregating the three hedge funds. Consider an investor in the SA fund. After paying 20% incentive fees, what would be the value of the investor's portfolio at the end of the year?
+A: $337.5
+B: $341.9
+C: $348.0
+ Assistant: ?
+026 IMAGE[144] User: a_okvqa_mc: During the year, a company purchased raw materials of $77,321, and incurred direct labor costs of $125,900. Overhead is applied at the rate of 75% of the direct labor cost. These are the inventory balances: <image 1> Compute the cost of goods sold.
+A: $272,125
+B: $275,125
+C: $276,125
+D: $279,125
+ Assistant: ?
+027 IMAGE[144] User: a_okvqa_mc: Fill in the missing amounts for Company D. (from top to bottom) Each case is independent of the others. Assume that only one product is being sold by each company. <image 1>
+A: $270,000,$150,000
+B: $260,000,$150,000
+C: $270,000,$160,000
+D: $260,000,$160,000
+ Assistant: ?
+028 IMAGE[144] User: a_okvqa_mc: Consider the rate of stocks ABC and XYZ. <image 1> Calculate the arithmetic average return on these stocks over the sample period.
+A: (1) 9% (2)10%
+B: (1) 9% (2)9%
+C: (1) 10% (2)10%
+D: (1) 10% (2)9%
+ Assistant: ?
+029 IMAGE[144] User: a_okvqa_mc: The following are estimates for two stocks. <image 1> The market index has a standard deviations of 22% and the risk-free rate is 8%.Suppose that we were to construct a portfolio with proportions: <image 2> Compute the beta of the portfolio.
+A: 0.69
+B: 0.74
+C: 0.78
+ Assistant: ?
+030 IMAGE[144] User: a_okvqa_mc: You are asked to compare two options with parameters as given. The risk-free interest rate should be assumed to be 6%. Assume the stocks on which these options are written pay no dividends. <image 1> Which call option is written on the stock with the higher volatility?
+A: A
+B: B
+C: Not enough information
+ Assistant: ?
+031 IMAGE[144] User: a_okvqa_mc: <image 1> Baxter Company has a relevant range of production between 15,000 and 30,000 units. The following cost data represents average variable costs per unit for 25,000 units of production. If 29,000 units are produced, what are the total variable costs?
+A: $695,000
+B: $696,000
+C: $697,000
+D: $698,000
+ Assistant: ?
+032 IMAGE[144] User: a_okvqa_mc: U.S. Treasuries represent a significant holding in many pension portfolios. You decide to analyze the yield curve for U.S. Treasury notes. Using the data in the table below, calculate the 5-year spot and forward rates assuming annual compounding. Show your calculations. <image 1>
+A: (1) 7.11% ; (2)7.43%
+B: (1) 7.13% ; (2)7.01%
+C: (1) 7.10% ; (2)7.29%
+ Assistant: ?
+033 IMAGE[144] User: a_okvqa_mc: Each of the following situations relates to a different company. <image 1> For company D, find the missing amounts.
+A: $1,034,325
+B: $1,098,650
+C: $1,081,584
+D: $1,210,732
+ Assistant: ?
+034 IMAGE[144] User: a_okvqa_mc: Here are data on two companies. The T-bill rate is 4%  and the market risk premium is 6%. <image 1> What would be the fair return for each company, according to the capital asset pricing model(CAPM)
+A: 13%
+B: 11%
+C: 10%
+ Assistant: ?
+035 IMAGE[144] User: a_okvqa_mc: Prepare a statement of owner's equity using the information provided for Pirate Landing for the month of October 2018. <image 1>
+A: $57,400
+B: $69,500
+C: $37,300
+D: $58,500
+ Assistant: ?
+036 IMAGE[144] User: a_okvqa_mc: Freeman Furnishings has summarized its data as shown. Direct labor hours will be used as the activity base to allocate overhead: <image 1> Compute the cost of goods manufactured.
+A: $706,000
+B: $707,000
+C: $708,000
+D: $709,000
+ Assistant: ?
+037 IMAGE[144] User: a_okvqa_mc: Use the Black-Scholes formula to find the value of a call option on the following stock: <image 1>
+A: $9.51
+B: $8.29
+C: $7.34
+ Assistant: ?
+038 IMAGE[144] User: a_okvqa_mc: A pension fund manager is considering three mutual funds. The first is a stock fund, the second is a long-term government and corporate bond fund, and the third is a T-bill money  market fund that yields a rate of 8%. The probability distribution of the risky funds is as follows:<image 1>The correlation between the fund returns is .10. Solve numerically for the proportion s of each asset of the optimal risky portfolio.
+A: w(s)=0.4516; w(B)=0.5484
+B: w(s)=0.4730; w(B)=0.5270
+C: w(s)=0.4691; w(B)=0.5309
+ Assistant: ?
+039 IMAGE[144] User: a_okvqa_mc: Mountain Peaks applies overhead on the basis of machine hours and reports the following information: <image 1> Was overhead over- or underapplied, and by what amount?
+A: overhead by $9,000
+B: overapplied by $10,000
+C: underapplied by $9,000
+D: underapplied by $10,000
+ Assistant: ?
+040 IMAGE[144] User: a_okvqa_mc: MVP, Inc., has produced rodeo supplies for over 20 years. The company currently has a debt-equity ratio of 50 percent and is in the 40 percent tax bracket. The required return on the firm's levered equity is 16 percent. The company is planning to expand its production capacity. The equipment to be purchased is expected to generate the following unlevered cash flows:<image 1>The company has arranged a debt issue of $8.7 million to partially finance the expansion. Under the loan, the company would pay interest of 9 percent at the end of each year on the outstanding balance at the beginning of the year. The company would also make yearend principal payments of $2,900,000 per year, completely retiring the issue by the end of the third year. Using the adjusted present value method, what's the APV of the expansion?
+A: $2,169,595.50
+B: $2,543,698.19
+C: $2,713,293.68
+ Assistant: ?
+041 IMAGE[144] User: a_okvqa_mc: Prices of zero-coupon bonds reveal the following pattern of forward rates: <image 1> In addition to the zero-coupon bond, investors also may purchase a 3-year bond making annual payments of $60 with par value $1,000. Under the expectations hypothesis, what is the expected realized compound yield of the coupon bond?
+A: 6.66%
+B: 6.79%
+C: 6.91%
+ Assistant: ?
+042 IMAGE[144] User: a_okvqa_mc: Assume accounts have normal balances, the missing account balance of Dividends is $12,000. What is the balance of the account? <image 1>
+A: $194,815
+B: $182,815
+C: $12,000
+D: $9,000
+ Assistant: ?
+043 IMAGE[144] User: a_okvqa_mc: Suresh Singh, CFA, is analyzing a convertible bond. The characteristics of the bond and the underlying common stock are given in the following exhibit: <image 1> Compute the bond's market conversion price.
+A: $45.03
+B: $47.73
+C: $48.25
+ Assistant: ?
+044 IMAGE[144] User: a_okvqa_mc: Tim-Buck-II rents jet skis at a beach resort. There are three models available to rent: Junior, Adult, and Expert. The rental price and variable costs for these three models are as follows: <image 1> The current product mix is 5:4:1. The three models share total fixed costs of $114,750. Calculate Tim-Buck-II's break-even point in both dollars and units.
+A: $185,210.90 and 250 composite units
+B: $177,210.90 and 270 composite units
+C: $185,210.90 and 250 composite units
+D: $178,210.90 and 270 composite units
+ Assistant: ?
+045 IMAGE[144] User: a_okvqa_mc: <image 1> Ballentine Manufacturing produces and sells lawnmowers through a national dealership network. They purchase raw materials from a variety of suppliers, and all manufacturing and assembly work is performed at their plant outside of Kansas City, Missouri. They recorded these costs for the year ending December 31, 2017. What is the total expense?
+A: $2,400,000
+B: $2,500,000
+C: $2,600,000
+D: $2,700,000
+ Assistant: ?
+046 IMAGE[144] User: a_okvqa_mc: <image 1> Sanchez & Vukmin, LLP, is a full-service accounting firm located near Chicago, Illinois. Last year, Sanchez provided tax preparation services to 500 clients. Total fixed costs were $265,000 with total variable costs of $180,000. Based on this information, what is the total cost per 900 clients?
+A: $324,000
+B: $477,000
+C: $801,000
+D: $731,000
+ Assistant: ?
+047 IMAGE[144] User: a_okvqa_mc: Pant Risers manufactures bands for self-dressing assistive devices for mobility-impaired individuals. Manufacturing is a one-step process where the bands are cut and sewn. This is the information related to this year's production: <image 1> Ending inventory was 100% complete as to materials and 70% complete as to conversion, and the total materials cost is $57,540 and the total conversion cost is $36,036. Using the weighted-average method, what are the unit costs if the company transferred out 17,000 units?
+A: $5.56
+B: $6.56
+C: $7.56
+D: $4.56
+ Assistant: ?
+048 IMAGE[144] User: a_okvqa_mc: Prices of zero-coupon bonds reveal the following pattern of forward rates: <image 1> In addition to the zero-coupon bond, investors also may purchase a 3-year bond making annual payments of $60 with par value $1,000.What is the price of the coupon bond?
+A: $984.10
+B: $935.44
+C: $901.25
+ Assistant: ?
+049 IMAGE[144] User: a_okvqa_mc: Consider the two (excess return) index-model regression results for stocks A and B. The risk-free rate over the period was 6%, and the market's average return was 14%. Performance is measured using an index model regression on excess returns. <image 1> Which stock is the best choice when this is the only risky asset to be held by the investor.
+A: A
+B: B
+ Assistant: ?
+050 IMAGE[144] User: a_okvqa_mc: Mountain Peaks applies overhead on the basis of machine hours and reports the following information: <image 1> How much overhead was applied during the year?
+A: $143,000
+B: $243,000
+C: $343,000
+D: $443,000
+ Assistant: ?
+051 IMAGE[144] User: a_okvqa_mc: The present value of the following cash flow stream is $7,300 when discounted at 7.1 percent annually. What is the value of the missing cash flow?<image 1>
+A: $1,695.82
+B: $1,704.39
+C: $1,717.65
+ Assistant: ?
+052 IMAGE[144] User: a_okvqa_mc: Consider the following multifactor (APT) model of security returns for a particular stock.<image 1>Suppose that the market expected the values for the three macro factors given in column 1 below, but that the actual values turn out as given in column 2. Calculate the revised expectations for the rate of return on the stock once the 'surprises' become known.
+A: 17.3%
+B: 17.8%
+C: 18.1%
+ Assistant: ?
+053 IMAGE[144] User: a_okvqa_mc: Summary information from a company's job cost sheets shows the following information: <image 1> What are the balances in the work in process inventory, finished goods inventory, and cost of goods sold for May?
+A: 3,500 9,231 0
+B: 3,230 7,540 9,231
+C: 4,664 5,000 2,540
+D: 5,000 3,230 3,500
+ Assistant: ?
+054 IMAGE[144] User: a_okvqa_mc: Suppose a factor model is appropriate to describe the returns on a stock. The current expected return on the stock is 10.5 percent. Information about those factors is presented in the following chart:<image 1> What is the total return on this stock?
+A: 13.11%
+B: 10.79%
+C: 12.82%
+ Assistant: ?
+055 IMAGE[144] User: a_okvqa_mc: This cost data from Hickory Furniture is for the year 2017. <image 1> Predict the utility costs if 600 tables are produced.
+A: $168
+B: $169
+C: $170
+D: $171
+ Assistant: ?
+056 IMAGE[144] User: a_okvqa_mc: From the following Company Y adjusted trial balance, what is the retained earnings to be reported? <image 1>
+A: $17,800
+B: $16,800
+C: $15,550
+D: $12,280
+ Assistant: ?
+057 IMAGE[144] User: a_okvqa_mc: The following information is taken from the records of Rosebloom Flowers for the year 2019. <image 1> Calculate net income or net loss for March.
+A: $1,030
+B: $730
+C: $940
+D: $950
+ Assistant: ?
+058 IMAGE[144] User: a_okvqa_mc:  manager buys three shares of stock today, and then sells one of those shares each year for the next 3 years. His actions and the price history of the stock are summarized below. The stock pays no dividends. <image 1> Calculate the time-weighted geometric average return on this 'portfolio.
+A: 3.16%
+B: 3.57%
+C: 3.99%
+ Assistant: ?
+059 IMAGE[144] User: a_okvqa_mc: This cost data from Hickory Furniture is for the year 2017. <image 1> Predict the utility costs if 900 chairs are produced.
+A: $3,320
+B: $3,420
+C: $3,520
+D: $3,620
+ Assistant: ?
+060 IMAGE[144] User: a_okvqa_mc: Look at the futures listings for the corn contract in Figure 2.10 .<image 1>. How many March maturity contracts are outstanding?
+A: 177,561
+B: 179,443
+C: 165,022
+ Assistant: ?
+061 IMAGE[144] User: a_okvqa_mc: From the following Company A adjusted trial balance, what is the total assets of the company? <image 1>
+A: $114,950
+B: $104,950
+C: $116,950
+D: $106,950
+ Assistant: ?
+062 IMAGE[144] User: a_okvqa_mc: Prepare an income statement using the following information for DL Enterprises for the month of July 2018. <image 1> 
+A: $5,500
+B: $4,500
+C: $4,300
+D: $4,800
+ Assistant: ?
+063 IMAGE[144] User: a_okvqa_mc: A convertible bond has the following features:<image 1> Calculate the conversion premium for this bond.
+A: $583.24
+B: $178.44
+C: $191.76
+ Assistant: ?
+064 IMAGE[144] User: a_okvqa_mc: Here are facts for Hailey's Collision Service for January. <image 1> Assuming no investments or withdrawals, what is the ending balance in the owners' capital account?
+A: $74,325
+B: $84,680
+C: $63,665
+D: $67,420
+ Assistant: ?
+065 IMAGE[144] User: a_okvqa_mc: <image 1> Just Beachy is a retail business located on the coast of Florida where it sells a variety of beach apparel, T-shirts, and beach-related souvenir items. They purchase all of their inventory from wholesalers and distributors. For the year ending December 31, 2017, they reported these revenues and expenses. What is total revenue?
+A: $683,000
+B: $684,000
+C: $685,000
+D: $686,000
+ Assistant: ?
+066 IMAGE[144] User: a_okvqa_mc: Brahma Industries sells vinyl replacement windows to home improvement retailers nationwide. The national sales manager believes that if they invest an additional $25,000 in advertising, they would increase sales volume by 10,000 units. <image 1> What is the operating income?
+A: $759,000
+B: $1,138,500
+C: $714,500
+D: $44,500
+ Assistant: ?
+067 IMAGE[144] User: a_okvqa_mc: Flanders Manufacturing is considering purchasing a new machine that will reduce variable costs per part produced by $0.15. The machine will increase fixed costs by $18,250 per year. The information they will use to consider these changes is shown here. <image 1> What is the operating income?
+A: $44,550
+B: $118,800
+C: $74,250
+D: $345,600
+ Assistant: ?
+068 IMAGE[144] User: a_okvqa_mc: Each of the following situations relates to a different company. <image 1> For company A, find the missing amounts.
+A: $520,380
+B: $501,570
+C: $532,200
+D: $607,410
+ Assistant: ?
+069 IMAGE[144] User: a_okvqa_mc: Peninsular Research is initiating coverage of a mature manufacturing industry. John Jones,CFA, head of the research department, gathered the following fundamental industry and market data to help in his analysis: .<image 1> Compute the price-to-earnings ratio for the industry based on this fundamental data.
+A: 27.4
+B: 30.0
+C: 32.3
+ Assistant: ?
+070 IMAGE[144] User: a_okvqa_mc: Consider the following information:<image 1>What is the variance of a portfolio invested 20 percent each in A and B, and 60 percent in C?
+A: 0.01559
+B: 0.01377
+C: 0.02420
+ Assistant: ?
+071 IMAGE[144] User: a_okvqa_mc: <image 1> Tom West is a land surveyor who operates a small surveying company, performing surveys for both residential and commercial clients. He has a staff of surveyors and engineers who are employed by the firm. For the year ending December 31, 2017, he reported these income and expenses. What is total revenue?
+A: $820,000
+B: $830,000
+C: $840,000
+D: $850,000
+ Assistant: ?
+072 IMAGE[144] User: a_okvqa_mc: Wilkinson Co. has identified an investment project with the following cash flows. If the discount rate is 10 percent, what is the present value of these cash flows? What is the present value at 18 percent? At 24 percent?<image 1>
+A: $3,405.76,$2,280.44, $2,940.87
+B: $3,042.07,$2,739.43, $2,574.03
+C: $3,125.96,$2,592.69, $2,280.44
+ Assistant: ?
+073 IMAGE[144] User: a_okvqa_mc: Consider the following information: <image 1> Your portfolio is invested 30 percent each in A and C, and 40 percent in B. What is the expected return of the portfolio?
+A: 11.17%
+B: 11.20%
+C: 20.75%
+ Assistant: ?
+074 IMAGE[144] User: a_okvqa_mc: An analyst has recently informed you that at the issuance of a company's convertible bonds, one of the two following sets of relationships existed:<image 1> Assume the bonds are available for immediate conversion. Which of the two scenarios do you believe is more likely?
+A: A
+B: B
+C: None
+ Assistant: ?
+075 IMAGE[144] User: a_okvqa_mc: During the year, a company purchased raw materials of $77,321, and incurred direct labor costs of $125,900. Overhead is applied at the rate of 75% of the direct labor cost. These are the inventory balances: <image 1> Compute the cost of goods manufactured.
+A: $305,667
+B: $315,667
+C: $325,667
+D: $335,667
+ Assistant: ?
+076 IMAGE[144] User: a_okvqa_mc: Beaucheau Farms sells three products (E, F, and G) with a sale mix ratio of 3:1:2. Unit sales price are shown. What is the sales price per composite unit? <image 1>
+A: $28.00
+B: $20.00
+C: $59.00
+D: $41.00
+ Assistant: ?
+077 IMAGE[144] User: a_okvqa_mc: Each situation below relates to an independent company's owners' equity. <image 1> What is the missing value of company 2?
+A: $6,100
+B: $6,200
+C: $7,200
+D: $6,300
+ Assistant: ?
+078 IMAGE[144] User: a_okvqa_mc: Use the option quote information shown here to answer the questions that follow. The stock is currently selling for $114. <image 1> Suppose you buy 10 contracts of the February 110 call option. How much will you pay, ignoring commissions?
+A:  $7,600
+B: $30,000
+C: $4,700
+ Assistant: ?
+079 IMAGE[144] User: a_okvqa_mc: <image 1> Winterfell Products manufactures electrical switches for the aerospace industry. For the year ending 2019, they reported these revenues and expenses. What is the company's net profit for December 31, 2019?
+A: $195,000
+B: $196,000
+C: $197,000
+D: $198,000
+ Assistant: ?
+080 IMAGE[144] User: a_okvqa_mc: Janet Meer is a fixed-income portfolio manager. Noting that the current shape of the yield curve is flat, she considers the purchase of a newly issued, 7% coupon, 10-year maturity, option-free corporate bond priced at par. The bond has the following features: <image 1> Meer is also considering the purchase of a newly issued, 7.25% coupon, 12-year maturity option-free corporate bond. She wants to evaluate this second bond's price sensitivity to an instantaneous, downward parallel shift in the yield curve of 200 basis points. Based on the following data, what will be its price change in this yield-curve scenario? <image 2>
+A: 15.80%
+B: 16.77%
+C: 17.46%
+ Assistant: ?
+081 IMAGE[144] User: a_okvqa_mc: Assume that of your $10,000 portfolio, you invest $9,000 in Stock X and $1,000 in Stock Y. What is the expected return on your portfolio?<image 1>
+A: $1,900
+B: $1,978
+C: $1,823
+ Assistant: ?
+082 IMAGE[144] User: a_okvqa_mc: Let us focus on the raw materials, what is the materials available for use? <image 1>
+A: $1,775
+B: $1,875
+C: $1,975
+D: $2,075
+ Assistant: ?
+083 IMAGE[144] User: a_okvqa_mc: Consider the rate of stocks ABC and XYZ. <image 1> Calculate the geometric average returns of each stock. 
+A: (1) 9.37% (2)9.18%
+B: (1) 9.49% (2)9.10%
+C: (1) 9.77% (2)9.11%
+ Assistant: ?
+084 IMAGE[144] User: a_okvqa_mc: For each of the following, compute the present value:<image 1>
+A: PV = $8,047.44; $7,127.18; $123,048.11; $7,988.07
+B: PV = $8,037.44; $7,227.18; $124,048.11; $6,988.07
+C: PV = $8,947.44; $7,147.18; $123,068.11; $7,948.07
+D: PV = $8,027.44; $7,124.18; $124,042.11; $7,488.05
+ Assistant: ?
+085 IMAGE[144] User: a_okvqa_mc: Karen Kay, a portfolio manager at Collins Asset Management, is using the capital asset pricing model for making recommendations to her clients. Her research department has developed the information shown in the following exhibit. <image 1> Identify and justify which stock would be more appropriate for an investor who wants to add this stock to a well-diversified equity portfolio.
+A: X
+B: Y
+ Assistant: ?
+086 IMAGE[144] User: a_okvqa_mc: The following table shows risk and return measures for two portfolios. <image 1> When plotting portfolio R on the preceding table relative to the SML, portfolio R lies:______
+A: On the SML
+B: Below the SML
+C: Above the SML
+D: Insufficient data given
+ Assistant: ?
+087 IMAGE[144] User: a_okvqa_mc: <image 1> Baxter Company has a relevant range of production between 15,000 and 30,000 units. The following cost data represents average variable costs per unit for 25,000 units of production. If 21,000 units are produced, what are the total variable costs?
+A: $505,000
+B: $504,000
+C: $506,000
+D: $503,000
+ Assistant: ?
+088 IMAGE[144] User: a_okvqa_mc: Consider the following table, which gives a security analyst's expected return on two stocks for two particular market returns: <image 1> What are the betas of the two stocks?
+A: (1)1.98; (2)0.44
+B: (1)2.00; (2)0.30
+C: (1)2.13; (2)0.51
+ Assistant: ?
+089 IMAGE[144] User: a_okvqa_mc: <image 1> Just Beachy is a retail business located on the coast of Florida where it sells a variety of beach apparel, T-shirts, and beach-related souvenir items. They purchase all of their inventory from wholesalers and distributors. For the year ending December 31, 2017, they reported these revenues and expenses. What is the total expense?
+A: $520,000
+B: $530,000
+C: $540,000
+D: $550,000
+ Assistant: ?
+090 IMAGE[144] User: a_okvqa_mc: The information in the following exhibit comes from the notes to the financial statements of QuickBrush Company and SmileWhite Corporation:<image 1> Determine which company has the higher quality of earnings by discussing each of the three notes.
+A: QuickBrush
+B: SmileWhite
+ Assistant: ?
+091 IMAGE[144] User: a_okvqa_mc: This cost data from Hickory Furniture is for the year 2017. <image 1> Using the high-low method, express the company's utility costs as an equation where X represents number of tables produced.
+A: Utility cost=0.26*X
+B: Utility cost=0.27*X
+C: Utility cost=0.28*X
+D: Utility cost=0.29*X
+ Assistant: ?
+092 IMAGE[144] User: a_okvqa_mc: Fountain Corporation's economists estimate that a good business environment and a bad business environment are equally likely for the coming year.The managers of the company must choose between two mutually exclusive projects.Assume that the project the company chooses will be the firm's only activity and that the firm will close one year from today. The company is obligated to make a $3,500 payment to bondholders at the end of the year. The projects have the same systematic risk but different volatilities. Consider the following information pertaining to the two projects:  <image 1> Which of the two strategies maximizes the expected value of the firm?
+A:  The low-volatility project 
+B:  The high-volatility project 
+C:  Both of the two projects 
+ Assistant: ?
+093 IMAGE[144] User: a_okvqa_mc: Flanders Manufacturing is considering purchasing a new machine that will reduce variable costs per part produced by $0.15. The machine will increase fixed costs by $18,250 per year. The information they will use to consider these changes is shown here. <image 1> What is the new total contribution margin?
+A: $44,550
+B: $118,800
+C: $74,250
+D: $345,600
+ Assistant: ?
+094 IMAGE[144] User: a_okvqa_mc: Sandra Kapple presents Maria VanHusen with a description, given in the following table, of the bond portfolio held by the Star Hospital Pension Plan. All securities in the bond portfolio are noncallable U.S. Treasury securities.<image 1> Calculate the effective duration of the 4.75% Treasury security due 2036.
+A: 14.8907
+B: 15.2575
+C: 15.6331
+ Assistant: ?
+095 IMAGE[144] User: a_okvqa_mc: Brahma Industries sells vinyl replacement windows to home improvement retailers nationwide. The national sales manager believes that if they invest an additional $25,000 in advertising, they would increase sales volume by 10,000 units. <image 1> What is the new fixed costs?
+A: $759,000
+B: $1,138,500
+C: $714,500
+D: $44,500
+ Assistant: ?
+096 IMAGE[144] User: a_okvqa_mc: Assume accounts have normal balances, what is the balance of the account? <image 1> Adjustments needed: Salaries due to administrative employees, but unpaid at period end, $2,000; Insurance still unexpired at end of the period, $12,000.
+A: $134,700
+B: $84,500
+C: $101,300
+D: $125,800
+ Assistant: ?
+097 IMAGE[144] User: a_okvqa_mc: Shonda & Shonda is a company that does land surveys and engineering consulting. They have an opportunity to purchase new computer equipment that will allow them to render their drawings and surveys much more quickly. The new equipment will cost them an additional $1,200 per month, but they will be able to increase their sales by 10% per year. Their current annual cost and break-even figures are as follows: <image 1> What will be the impact on the break-even point if Shonda & Shonda purchases the new computer?
+A: 160 units and $45,477
+B: 180 units and $40,477
+C: 160 units and $40,477
+D: 180 units and $45,477
+ Assistant: ?
+098 IMAGE[144] User: a_okvqa_mc: Suppose the following two independent investment opportunities are available to Relax, Inc.<image 1> The appropriate discount rate is 8.5 percent.Which project(s) should the company accept based on the profitability index rule?
+A: A
+B: B
+ Assistant: ?
+099 IMAGE[144] User: a_okvqa_mc: Materials added at the beginning and ending work in process inventory being 25% complete with regard to conversion costs. <image 1> What is the cost of ending inventory?
+A: $2,790
+B: $2,890
+C: $1,890
+D: $1,790
+ Assistant: ?

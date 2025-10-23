@@ -163,7 +163,7 @@ class InfDatasetEvaluator:
                             image_input_idx=batch_inference.get("image_input_idx"),
                         )
                         inference_warmup = False
-
+                    
                     olmo_gen_output = model.generate(
                         input_ids=batch_inference["input_ids"],
                         images=batch_inference.get("images"),

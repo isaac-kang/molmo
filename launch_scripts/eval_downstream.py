@@ -16,6 +16,9 @@ from olmo.util import (
     add_cached_path_clients,
     clean_opt,
     prepare_cli_environment, )
+import sys
+import os
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from scripts.mm_eval import ModelEvaluator
 from launch_scripts.utils import get_evaluation
 
@@ -121,6 +124,16 @@ def main():
                 "android_control_hl:test",
                 # Do this last and low-res since it is HUGE
                 "vqa_v2_test:test2015", # No metrics
+            ]
+        elif task == "str":
+            # STR OCR evaluation tasks
+            tasks += [
+                "CUTE80",
+                "IC13_857", 
+                "IC15_1811",
+                "IIIT5k_3000",
+                "SVT",
+                "SVTP"
             ]
         elif "," in task:
             tasks += task.split(",")   # support comma seperator just because the jax code does

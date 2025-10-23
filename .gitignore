@@ -1,58 +1,73 @@
-# build artifacts
+# Model weights and checkpoints (too large for GitHub)
+*.pt
+*.pth
+*.bin
+*.safetensors
+checkpoints/
+models/
+weights/
 
-.eggs/
-.mypy_cache
-*.egg-info/
-build/
-dist/
-pip-wheel-metadata/
+# Data directories
+data/
+~/data/
+/data/
 
+# Results and outputs
+results/
+outputs/
+predictions/
+str_results/
+ocr_results/
+wandb/
+logs/
 
-# dev tools
-
-.envrc
-.python-version
-.idea
-.venv/
-.vscode/
-/*.iml
-pyrightconfig.json
-.ruff.toml
-
-
-# jupyter notebooks
-
-.ipynb_checkpoints
-
-
-# miscellaneous
-
-.cache/
-doc/_build/
-*.swp
-.DS_Store
-
-
-# python
-
+# Python cache
+__pycache__/
 *.pyc
 *.pyo
-__pycache__
+*.pyd
+.Python
+*.so
 
+# Virtual environments
+venv/
+env/
+.venv/
+.env/
 
-# testing and continuous integration
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
 
-.coverage
-.pytest_cache/
-.benchmarks
+# OS files
+.DS_Store
+Thumbs.db
 
-# documentation build artifacts
+# Temporary files
+*.tmp
+*.temp
+debug_*.py
+test_*.py
 
-docs/build
-site/
+# Jupyter notebooks checkpoints
+.ipynb_checkpoints/
 
-# runs
-/runs/
-/wandb/
-/scratch/
-core
+# Large files
+*.zip
+*.tar.gz
+*.tar.bz2
+*.7z
+*.rar
+
+# HuggingFace cache
+.cache/
+transformers_cache/
+
+# CUDA cache
+.nv/
+
+# Environment variables
+.env
+.env.local

@@ -58,6 +58,7 @@ test_*.py
 *.zip
 *.tar.gz
 *.tar.bz2
+*.tar
 *.7z
 *.rar
 

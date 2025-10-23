@@ -20,6 +20,7 @@ str_results/
 ocr_results/
 wandb/
 logs/
+viz/
 
 # Python cache
 __pycache__/
